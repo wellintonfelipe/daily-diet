@@ -204,3 +204,5 @@ async function getUserMetrics(userId) {
 - **Validação**: Valide os dados antes de inseri-los ou atualizá-los no banco de dados.
 
 Essa implementação básica cobre a criação, edição, exclusão e visualização de refeições, bem como a recuperação de métricas, seguindo as regras e requisitos especificados.`
+
+# By wellinton felipe 💙
