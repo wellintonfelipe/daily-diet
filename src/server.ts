@@ -38,7 +38,8 @@ app.get('/meals', async () => {
     id: crypto.randomUUID(),
     name: 'Arroz',
     description: 'Arroz a Carbonara',
-    date_time: new Date(),
+    date_time: new Date(Date.now()),
+    is_on_diet: true,
   })
 
   return { tables }
