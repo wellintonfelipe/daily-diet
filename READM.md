@@ -1,19 +1,19 @@
 # Regras da aplicação
 
-[ ] Deve ser possível criar um usuário.
-[ ] Deve ser possível identificar o usuário entre as requisições.
-[ ] Deve ser possível registrar uma refeição feita, com as seguintes informações:
+[x] Deve ser possível criar um usuário.
+[x] Deve ser possível identificar o usuário entre as requisições.
+[x] Deve ser possível registrar uma refeição feita, com as seguintes informações:
 
-- [ ] _As refeições devem ser relacionadas a um usuário_.
-- [ ] Nome.
-- [ ] Descrição.
-- [ ] Data e Hora.
-- [ ] Está dentro ou não da dieta.
+- [x] _As refeições devem ser relacionadas a um usuário_.
+- [x] Nome.
+- [x] Descrição.
+- [x] Data e Hora.
+- [x] Está dentro ou não da dieta.
 
 - [ ] Deve ser possível editar uma refeição, podendo alterar todos os dados acima.
 - [ ] Deve ser possível apagar uma refeição.
-- [ ] Deve ser possível listar todas as refeições de um usuário.
-- [ ] Deve ser possível visualizar uma única refeição.
+- [x] Deve ser possível listar todas as refeições de um usuário.
+- [x] Deve ser possível visualizar uma única refeição.
 - Deve ser possível recuperar as métricas de um usuári.
 
   - [ ] Quantidade total de refeições registradas.
@@ -28,8 +28,6 @@
 É comum ao estar desenvolvendo uma API, imaginar como esses dados vão estar sendo utilizados pelo cliente web e/ou mobile.
 
 Por isso, deixamos abaixo o link para o layout da aplicação que utilizaria essa API.
-
-# Chat GPT
 
 `Para criar uma aplicação em Node.js com banco de dados usando Knex.js, vou dividir a solução em duas partes principais: a modelagem do banco de dados e as regras da aplicação. Aqui está como você pode estruturá-las:
 
