@@ -12,8 +12,8 @@ export async function mealsRoutes(app: FastifyInstance) {
       id: crypto.randomUUID(),
       name: 'Arroz',
       description: 'Arroz a Carbonara',
-      date_time: Date.now(),
-      is_on_diet: true,
+      date_time: String(Date.now()),
+      is_on_diet: 'true',
     })
 
     return { tables }
