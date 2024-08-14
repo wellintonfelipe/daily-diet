@@ -35,7 +35,6 @@ export async function mealsRoutes(app: FastifyInstance) {
   })
 
   // Burcar refeição do usuario
-
   app.get('/:id', async (request) => {
     const getMealsParamsSchema = z.object({
       id: z.string().uuid(),
@@ -91,6 +90,57 @@ export async function mealsRoutes(app: FastifyInstance) {
     })
 
     return { meals }
+  })
+
+  // Listar quatidade total de refeições fora da dieta
+  app.get('/amount/outsite/:id', async (request) => {
+    const getAmountOutsideMealsParamsSchema = z.object({
+      id: z.string().uuid(),
+    })
+
+    const { id } = getAmountOutsideMealsParamsSchema.parse(request.params)
+
+    const meals = await knex('meals').where({
+      user_id: id,
+      is_on_diet: 'false',
+    })
+
+    return { meals }
+  })
+
+  app.delete('/:id', async (request, reply) => {
+    const deleteMealsParamsSchema = z.object({
+      id: z.string().uuid(),
+    })
+
+    const { id } = deleteMealsParamsSchema.parse(request.params)
+
+    await knex('meals').where('id', id).del()
+
+    return reply.status(204).send()
+  })
+
+  app.patch('/:id', async (request, reply) => {
+    const patchMealsParamsSchema = z.object({
+      id: z.string().uuid(),
+    })
+    const { id } = patchMealsParamsSchema.parse(request.params)
+
+    const updateMealsBodySchema = z.object({
+      name: z.string(),
+      description: z.string(),
+      isOnDiet: z.enum(['true', 'false']),
+    })
+    const data = updateMealsBodySchema.parse(request.body)
+
+    await knex('meals').where({ id }).update({
+      name: data.name,
+      description: data.description,
+      is_on_diet: data.isOnDiet,
+      updated_at: knex.fn.now(),
+    })
+
+    return reply.status(204).send()
   })
 }
 
