@@ -61,6 +61,7 @@ export async function mealsRoutes(app: FastifyInstance) {
     return { meals }
   })
 
+  // Listar quatidade total de refeições de um usuario
   app.get('/amount/:id', async (request) => {
     const getAmountMealsParamsSchema = z.object({
       id: z.string().uuid(),
@@ -72,6 +73,22 @@ export async function mealsRoutes(app: FastifyInstance) {
       .where('user_id', id)
       .count('id', { as: 'Quantidade de Refeições' })
       .first()
+
+    return { meals }
+  })
+
+  // Listar quatidade total de refeições dentro da dieta
+  app.get('/amount/inside/:id', async (request) => {
+    const getAmountInsideMealsParamsSchema = z.object({
+      id: z.string().uuid(),
+    })
+
+    const { id } = getAmountInsideMealsParamsSchema.parse(request.params)
+
+    const meals = await knex('meals').where({
+      user_id: id,
+      is_on_diet: 'false',
+    })
 
     return { meals }
   })

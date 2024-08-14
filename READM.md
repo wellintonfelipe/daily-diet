@@ -17,7 +17,7 @@
 - Deve ser possível recuperar as métricas de um usuári.
 
   - [x] Quantidade total de refeições registradas.
-  - [ ] Quantidade total de refeições dentro da dieta.
+  - [x] Quantidade total de refeições dentro da dieta.
   - [ ] Quantidade total de refeições fora da dieta.
   - [ ] Melhor sequência de refeições dentro da dieta.
 
