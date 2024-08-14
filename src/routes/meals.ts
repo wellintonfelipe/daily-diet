@@ -60,6 +60,21 @@ export async function mealsRoutes(app: FastifyInstance) {
 
     return { meals }
   })
+
+  app.get('/amount/:id', async (request) => {
+    const getAmountMealsParamsSchema = z.object({
+      id: z.string().uuid(),
+    })
+
+    const { id } = getAmountMealsParamsSchema.parse(request.params)
+
+    const meals = await knex('meals')
+      .where('user_id', id)
+      .count('id', { as: 'Quantidade de Refeições' })
+      .first()
+
+    return { meals }
+  })
 }
 
 /** Tabela de Refeições

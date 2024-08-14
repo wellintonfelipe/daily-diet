@@ -16,7 +16,7 @@
 - [x] Deve ser possível visualizar uma única refeição.
 - Deve ser possível recuperar as métricas de um usuári.
 
-  - [ ] Quantidade total de refeições registradas.
+  - [x] Quantidade total de refeições registradas.
   - [ ] Quantidade total de refeições dentro da dieta.
   - [ ] Quantidade total de refeições fora da dieta.
   - [ ] Melhor sequência de refeições dentro da dieta.
